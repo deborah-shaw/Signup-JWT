@@ -11,7 +11,7 @@ require("dotenv").config();
 
 // app.use(cors());
 app.use(cors({
-  origin: "https://signup-jwt.onrender.com"
+  origin: "https://signup-jwt-1.onrender.com"
 }));
 app.use(express.json());
 
