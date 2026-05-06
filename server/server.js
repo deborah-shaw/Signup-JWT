@@ -5,10 +5,14 @@ const app = express();
 const mongoose = require("mongoose");
 const User = require("./models/User");
 const jwt = require("jsonwebtoken");
+const PORT = process.env.PORT || 3000;
 
 require("dotenv").config();
 
-app.use(cors());
+// app.use(cors());
+app.use(cors({
+  origin: "https://signup-jwt.onrender.com"
+}));
 app.use(express.json());
 
 // Connect to MongoDB
@@ -162,5 +166,5 @@ app.get("/profile", authenticateToken, async (req, res) => {
 
 // Start server
 app.listen(3000, () => {
-  console.log("Backend running on http://localhost:3000");
+  console.log(`Backend running on port ${PORT}`);
 });
